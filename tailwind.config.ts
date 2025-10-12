@@ -57,6 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gradient: {
+          start: "hsl(var(--gradient-start))",
+          end: "hsl(var(--gradient-end))",
+        },
+        feature: {
+          purple: "hsl(var(--feature-purple))",
+          green: "hsl(var(--feature-green))",
+          orange: "hsl(var(--feature-orange))",
+        },
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)))',
       },
       borderRadius: {
         lg: "var(--radius)",
