@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -11,12 +12,14 @@ const Hero = () => {
           Master your college life with intelligent attendance tracking, expense management, 
           and task organization - all in one place.
         </p>
-        <Button 
-          size="lg" 
-          className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm transition-all duration-300"
-        >
-          Get Started
-        </Button>
+        <Link to="/dashboard">
+          <Button 
+            size="lg" 
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm transition-all duration-300"
+          >
+            Get Started
+          </Button>
+        </Link>
       </div>
     </section>
   );

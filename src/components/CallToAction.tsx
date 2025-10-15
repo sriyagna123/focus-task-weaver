@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   return (
@@ -10,12 +11,14 @@ const CallToAction = () => {
         <p className="text-lg text-white/90 mb-8">
           Start tracking your success today with Smart Tracking System
         </p>
-        <Button 
-          size="lg"
-          className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm transition-all duration-300"
-        >
-          Launch Dashboard
-        </Button>
+        <Link to="/dashboard">
+          <Button 
+            size="lg"
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm transition-all duration-300"
+          >
+            Launch Dashboard
+          </Button>
+        </Link>
       </div>
     </section>
   );
