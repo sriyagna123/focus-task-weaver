@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance_records: {
+        Row: {
+          attended_classes: number
+          created_at: string | null
+          id: string
+          required_percentage: number
+          total_classes: number
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          attended_classes?: number
+          created_at?: string | null
+          id?: string
+          required_percentage?: number
+          total_classes?: number
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          attended_classes?: number
+          created_at?: string | null
+          id?: string
+          required_percentage?: number
+          total_classes?: number
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
