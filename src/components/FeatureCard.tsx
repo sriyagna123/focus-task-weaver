@@ -1,4 +1,6 @@
 import { LucideIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FeatureCardProps {
   icon: LucideIcon;
@@ -9,8 +11,22 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ icon: Icon, title, description, features, iconColor }: FeatureCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      navigate("/dashboard");
+    } else {
+      navigate("/auth");
+    }
+  };
+
   return (
-    <div className="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
+    <div 
+      onClick={handleClick}
+      className="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border cursor-pointer hover:scale-105"
+    >
       <div 
         className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
         style={{ backgroundColor: iconColor }}
