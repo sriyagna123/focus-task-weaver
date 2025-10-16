@@ -5,7 +5,8 @@ import AttendanceTracker from "./AttendanceTracker";
 import ExpenseTracker from "./ExpenseTracker";
 import TaskManager from "./TaskManager";
 import { Button } from "@/components/ui/button";
-import { LogOut, ArrowLeft } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LogOut, ArrowLeft, Calendar, DollarSign, ListTodo } from "lucide-react";
 
 const ProtectedAttendance = () => {
   const [loading, setLoading] = useState(true);
@@ -70,11 +71,34 @@ const ProtectedAttendance = () => {
           </Button>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AttendanceTracker />
-          <ExpenseTracker />
-          <TaskManager />
-        </div>
+        <Tabs defaultValue="attendance" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-6">
+            <TabsTrigger value="attendance" className="flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <span className="hidden sm:inline">Attendance</span>
+            </TabsTrigger>
+            <TabsTrigger value="expense" className="flex items-center gap-2">
+              <DollarSign className="w-4 h-4" />
+              <span className="hidden sm:inline">Expenses</span>
+            </TabsTrigger>
+            <TabsTrigger value="tasks" className="flex items-center gap-2">
+              <ListTodo className="w-4 h-4" />
+              <span className="hidden sm:inline">Tasks</span>
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="attendance">
+            <AttendanceTracker />
+          </TabsContent>
+
+          <TabsContent value="expense">
+            <ExpenseTracker />
+          </TabsContent>
+
+          <TabsContent value="tasks">
+            <TaskManager />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
