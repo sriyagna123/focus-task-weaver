@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, ArrowLeft } from "lucide-react";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -83,6 +83,14 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-feature-purple to-gradient-end p-6">
+      <Button 
+        onClick={() => navigate("/")} 
+        variant="outline" 
+        size="icon"
+        className="fixed top-6 left-6 backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20"
+      >
+        <ArrowLeft className="w-4 h-4" />
+      </Button>
       <Card className="w-full max-w-md backdrop-blur-sm bg-card/95 shadow-2xl">
         <CardHeader className="text-center">
           <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-primary flex items-center justify-center">

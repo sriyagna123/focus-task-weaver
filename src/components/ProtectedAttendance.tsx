@@ -5,7 +5,7 @@ import AttendanceTracker from "./AttendanceTracker";
 import ExpenseTracker from "./ExpenseTracker";
 import TaskManager from "./TaskManager";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, ArrowLeft } from "lucide-react";
 
 const ProtectedAttendance = () => {
   const [loading, setLoading] = useState(true);
@@ -55,9 +55,14 @@ const ProtectedAttendance = () => {
     <div className="min-h-screen bg-gradient-to-br from-gradient-start via-feature-purple/5 to-gradient-end/10">
       <div className="container mx-auto px-6 py-8">
         <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">My Dashboard</h1>
-            <p className="text-muted-foreground">Welcome back, {user?.email}</p>
+          <div className="flex items-center gap-4">
+            <Button onClick={() => navigate("/")} variant="outline" size="icon">
+              <ArrowLeft className="w-4 h-4" />
+            </Button>
+            <div>
+              <h1 className="text-3xl font-bold text-foreground mb-2">My Dashboard</h1>
+              <p className="text-muted-foreground">Welcome back, {user?.email}</p>
+            </div>
           </div>
           <Button onClick={handleSignOut} variant="outline">
             <LogOut className="w-4 h-4 mr-2" />
